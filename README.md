@@ -19,14 +19,16 @@ Finally, i restored the AdventureWorks2022.bak utilsing SSMS to store the Advent
  - Import the file within the Microsoft RD
    
 ### SQL Server and SSMS installation
- - Installed SQL Server 2022 Developer : Link['https://go.microsoft.com/fwlink/p/?linkid=2215158&clcid=0x809&culture=en-gb&country=gb'].
- - After SQL Server has been successfully installed, click on the 'Get SSMS' which will direct you to this link[https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16].
+ - Installed [SQL Server 2022 Developer](https://go.microsoft.com/fwlink/p/?linkid=2215158&clcid=0x809&culture=en-gb&country=gb).
+ - After SQL Server has been successfully installed, click on the 'Get SSMS' which will direct you to this the [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) download page.
  - Follow the instructions to install SSMS.
 ### Restore Production database
  - Load SSMS
  - Connect to the SQL Production VM server by clicking on the server.
  - Once connected, Right click on the Database Node and click on Restore Database.
  - Drag and drop the AdventureWorks2022.bak file into:
-     'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup'
+   
+            'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup'
+   
  - Add the bak file to the be restored.
  - Once added click 'Ok', when it is successful it would be added into your Database node.
