@@ -125,3 +125,32 @@ This process utilizes SSMS backup management abilities allowing me to create a m
 10. Then i entered the storage container name into the 'Azure storage container'.
 
 11. finally, i clicked next until i reached the end keeping all the other pages default, at the end clicking on finish to finalize backup plan.
+
+### Milestone 5
+
+#### Mimicking data lose in production database
+
+I decided to perform a intentional deletion on the Person.Password table which consists of users hash passwords.
+
+This was performed on the Azure data studio on the production database
+
+Before the data removal, there were 19,972 rows.
+
+##### Intentional deletion query
+
+        DELETE TOP (1000)
+        FROM Person.[Password];
+
+After the data removal, the new total of rows were 18,972.
+
+#### Restoring production database
+
+This process was accomplished within the Azure portal.
+
+1. I navigated to the Azure SQL database service
+2. I clicked on my production database which redirected me into the overview page for the database.
+3. Then i located the Restore button at the header which would redirect me to the restore page.
+4. I left the source to 'point-in-time' as default.
+5. I then set the restore point date and time from 10 minutes before data deletion.
+6. Then i set the new database name to 'production-adventureworks-db-restored'.
+7. I left all the settings set to default onwards and i then reviewed and created the restored database.
