@@ -183,3 +183,56 @@ Once the failover group has been created, the failover and failback testing can 
 2. Once i loaded into the failover group, i started the failover by clicking on the 'Failover' button at the header. A warning popped up to confirm your action.
 3. Continue to accept the message and the failover will process. Once its successfully the green tick has been moved to the secondary database server.
 4. To failback to the primary server, you just click failover again and it would your production database back to my primary production server.
+
+### Milestone 7
+
+#### Microsoft Entra Admin setup
+
+In this milestone, it will showcase how i integrated Microsoft Entra directory with my Azure database set up for a more seamless role access for my database.
+
+1. I navigated to the production SQL database server (production-sql-db-server) where my restored production database is located.
+2. Then i configured the Microsoft Entra Admin by accessing the Microsoft Entra ID under the settings section, by clicking on 'Set Admin' and searching my name in the users section.
+3. After selecting the admin 'Jun Zhao', i saved the admin.
+4. Finally, i went to test the connection with my new Microsoft Entra ID, by reconnecting to the production server using Azure Active Directory/Microsoft Entra ID as the authentication method, once this was set i was redirected to a sign in process.
+5. Once the sign to the admin account wsa successful, in the Azure data studio i selected my account and kept everything in the connection settings as default to my previous connection.
+
+#### Create DB reader
+
+This process utilizes Azures Role based access management features by allowing me to create a user and allocating a specific role (db_datareader).
+
+1. I navigated to the Microsoft Entra ID page on the Azure portal which is where i created my DB_reader by heading to the Users tab under the Manage section.
+2. By clicking on the create user dropdown menu at the header, then selecting 'Create New User'.
+3. I then added a unique principle name and the display name as 'DB_reader'.
+4. Then i added a my own custom password for the new user, and keeping all the other properties as default.
+
+#### DB reader testing
+
+Within Azure data studio, i logged in as the DB_reader by following steps 4 and 5 of the 'Microsoft Entra Admin setup'but i added a new account by signing in as the DB_reader user.
+
+I tried deleting a row:
+
+                DELETE TOP (1)
+                FROM [HumanResources].[Department]
+
+Output:
+
+_Started executing query at Line 1
+Msg 229, Level 14, State 5, Line 1
+The DELETE permission was denied on the object 'Department', database 'production-adventureworks-db-restored', schema 'HumanResources'.
+Total execution time: 00:00:00.002_
+
+I tried Reading the top 1000 rows:
+
+                SELECT TOP (1000) [DepartmentID]
+                ,[Name]
+                ,[GroupName]
+                ,[ModifiedDate]
+                FROM [HumanResources].[Department]
+
+Output:
+
+_Successful_
+
+## UML diagram
+
+![Azure Project](/Diagram/Azure%20Project%20Diagram.png)
