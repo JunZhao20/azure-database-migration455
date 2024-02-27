@@ -154,3 +154,32 @@ This process was accomplished within the Azure portal.
 5. I then set the restore point date and time from 10 minutes before data deletion.
 6. Then i set the new database name to 'production-adventureworks-db-restored'.
 7. I left all the settings set to default onwards and i then reviewed and created the restored database.
+
+### Milestone 6
+
+#### Geo-replication
+
+This process showcases the disaster recovery feature in Azure.
+
+1. In the Azure portal i navigated to the restored production database and under data management i accessed the replica page.
+2. I had to create a new server that is in a different region in the work so proceeded to create new SQL database server by clicking on the 'create new' hyper link under the server input.
+3. I created a new server named 'replica-adventureworks' and set the server location to US East.
+4. Then for the authentication method i selected 'Use both SQL and Microsoft Entra authentication'
+5. Finally i then set the Microsoft Entra Admin to myself.
+6. Once my new replica server deployed i continued the Geo replication process for my production database by setting the server name to the server i had just create ('replica-adventureworks')
+7. I kept all the settings default then i reviewed and created the replica.
+
+#### Failover and failback testing
+
+This process displays the testing of the failover and failback procedure.
+
+1. I had to create a failover group, i navigated to the primary production server (production-sql-db-server) where my restored AdventureWorks is located in.
+2. Under the data management, i selected failover group and within here i created the failover group named 'adventureworks-production-failover' and selected the the replica server to go failover to.
+3. Finally i reviewed the failover group and deployed it.
+
+Once the failover group has been created, the failover and failback testing can be accomplished.
+
+1. I navigated to the failover group 'adventureworks-production-failover'.
+2. Once i loaded into the failover group, i started the failover by clicking on the 'Failover' button at the header. A warning popped up to confirm your action.
+3. Continue to accept the message and the failover will process. Once its successfully the green tick has been moved to the secondary database server.
+4. To failback to the primary server, you just click failover again and it would your production database back to my primary production server.
