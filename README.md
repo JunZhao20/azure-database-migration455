@@ -2,7 +2,35 @@
 
 In this project, i will architect and implement a cloud-based database system on Microsoft Azure, showcasing my hands-on expertise in cloud engineering.
 
-## Setup
+# Table of contents
+
+- [Accomplishments](#accomplishments)
+  - [Milestone 1 step](#milestone-1-setup)
+    - [Virtual Machine setup](#Virtual-Machine-setup)
+    - [SQL Server and SSMS installation](#sql-server-and-ssms-installation)
+    - [Restore Production database](#restore-production-database)
+  - [Milestone 2](#milestone-2)
+  - [Milestone 3](#milestone-3)
+  - [Milestone 4](#milestone-4)
+    - [On-premies Backup process](#on-premies-backup-process)
+    - [Upload to blob storage](#upload-to-blob-storage)
+    - [Create development environment](#create-development-environment)
+    - [Automated backup - Development database](#automated-backup---development-database)
+  - [Milestone 5](#milestone-5)
+    - [Mimicking data lose in production database](#mimicking-data-lose-in-production-database)
+    - [Restoring production database (Azure portal)](#restoring-production-database-azure-portal)
+  - [Milestone 6](#milestone-6)
+    - [Geo-replication](#geo-replication)
+    - [Failover and Failback testing](#failover-and-failback-testing)
+  - [Milestone 7](#milestone-7)
+    - [Microsoft Entra Admin setup](#microsoft-entra-admin-setup)
+    - [Create DB Reader](#create-db-reader)
+    - [DB Reader testing](#db-reader-testing)
+  - [UML Diagram](#uml-diagram)
+
+# Accomplishments
+
+## Milestone 1 (Setup)
 
 ### Virtual Machine setup
 
@@ -28,8 +56,6 @@ In this project, i will architect and implement a cloud-based database system on
 
 5.  Add the bak file to the be restored.
 6.  Once added click 'Ok', when it is successful it would be added into my Database node.
-
-## Accomplishments
 
 ### Milestone 2
 
@@ -143,7 +169,7 @@ Before the data removal, there were 19,972 rows.
 
 After the data removal, the new total of rows were 18,972.
 
-#### Restoring production database
+#### Restoring production database (Azure portal)
 
 This process was accomplished within the Azure portal.
 
